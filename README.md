@@ -1,30 +1,22 @@
-# Repo-Template
+# VewCore.WebApi
 
-Repo-Template is a template for new repositories.
+VewCore.WebApi is a .NET Class Library used for creating ASP.NET Web Apis.
 
 ## Features
 
-Planned features for Repo-Template include:
+Features for VewCore.WebApi include:
 
-- [x] **Feature 1**: It does this!
+- [x] **CRUD Controller Generic Class**: Generic class that extends the Controller ASP.NET class with default CRUD operation methods using EntityFrameworkCore.
 
-- [ ] **Feature 2**: Will do this!
-
-- [ ] **Feature 3**: Also this!
-
-## Access
-
-You can access the app from https://example.com/
-
-Swagger sheet for API endpoint available at https://example-2/
+- [x] **WebApi Helper Generic Class**: Provides wrapper methods around the CRUD endpoints a CrudController exposes.
 
 ## Installation
 
-Do this to install the app.
+If you haven't already
 
 ## Usage
 
-To use the app, we recommend doing this.
+Read the repository wiki for details about usage and classes.
 
 ## Contributions
 
@@ -33,15 +25,16 @@ All contributions are welcome. Please, open an issue or make a pull request if y
 ## Tech Stack
 
 This is the tech stack used by the app:
-- Technology X
-- Language X
-- Technology X
-- XXXXXXX
+- .NET 8.0
+- C#
+- EntityFrameworkCore
 
 ## Code Conventions
 
-This repository follows the XXX code conventions.
+This project follows the official Microsoft code conventions for C#. See:
+
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 
 ## License
 
-Repo-Template is licensed under the standard MIT license.
+VewCore.WebApi is licensed under the standard MIT license.

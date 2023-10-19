@@ -29,20 +29,7 @@ body:
       label: Version
       description: Which version of our software are you using?
       options:
-        - 0.0.0
-    validations:
-      required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: Which browsers are you facing this issue in?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
-        - Opera
+        - 1.0.0
     validations:
       required: true
   - type: textarea

@@ -12,7 +12,19 @@ Features for VewCore.WebApi include:
 
 ## Installation
 
-If you haven't already
+You can install the package by running the `dotnet add` command
+
+```Shell
+dotnet add ./MyProjectRoute package VewTech.VewCore.WebApi
+```
+
+You can also add a reference to the package in your .csproj file:
+
+```XML
+<ItemGroup>
+    <PackageReference Include="VewTech.VewCore.WebApi" Version="X.X.X" />
+</ItemGroup>
+```
 
 ## Usage
 

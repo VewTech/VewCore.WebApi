@@ -27,4 +27,4 @@ jobs:
       run: dotnet pack --no-build --configuration Release
 
     - name: Push
-      run: dotnet nuget push "**/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/${{ github.repository }}/index.json
+      run: dotnet nuget push "**/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/VewTech.${{ github.repository }}/index.json

@@ -35,11 +35,13 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// <summary>
     /// This is a wrapper around the POST endpoint. Will post the resource object.
     /// </summary>
+    /// <param name="resource">The resource to be created</param>
+    /// <param name="creatorId">The id of the resource creating this resource</param>
     /// <returns>The created resource.</returns>
     /// <exception cref="NullReferenceException"></exception>
-    public async Task<T> Post(T resource)
+    public async Task<T> Post(T resource, Guid? creatorId = null)
     {
-        var response = await Options.HttpClient.PostAsJsonAsync(endpointRoute, resource);
+        var response = await Options.HttpClient.PostAsJsonAsync($"{endpointRoute}?creatorId={creatorId}", resource);
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadFromJsonAsync<T>(options: Options.JsonSerializerOptions) ?? throw new NullReferenceException();
         return content;
@@ -64,12 +66,13 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// </summary>
     /// <param name="id">The id of the object to update.</param>
     /// <param name="patch">The JsonPatchDocument with the updates to perform on the resource.</param>
+    /// <param name="updatorId">The id of the resource updating this resource</param>
     /// <returns>The updated resource.</returns>
     /// <exception cref="NullReferenceException"></exception>
-    public async Task<T> Patch(Guid id, JsonPatchDocument<T> patch)
+    public async Task<T> Patch(Guid id, JsonPatchDocument<T> patch, Guid? updatorId = null)
     {
         var response = await Options.HttpClient.PatchAsJsonAsync
-        ($"{endpointRoute}/{id}", patch.Operations, options: Options.JsonSerializerOptions);
+        ($"{endpointRoute}/{id}?updatorId={updatorId}", patch.Operations, options: Options.JsonSerializerOptions);
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadFromJsonAsync<T>(options: Options.JsonSerializerOptions) ?? throw new NullReferenceException();
         return content;

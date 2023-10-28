@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RootNamespace>VewTech.VewCore.WebApi</RootNamespace>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <AssemblyName>VewTech.VewCore.WebApi</AssemblyName>
     <Authors>je-sendra</Authors>
     <Company>VewTech</Company>

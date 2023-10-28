@@ -30,6 +30,7 @@ body:
       description: Which version of our software are you using?
       options:
         - 1.0.0
+        - 1.1.0
     validations:
       required: true
   - type: textarea

@@ -26,6 +26,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// Creates a new resource.
     /// </summary>
     /// <param name="resource">The resource to be created.</param>
+    /// <param name="creatorId">The id of the resource that created this resource</param>
     /// <returns>The newly created resource.</returns>
     [HttpPost]
     public ActionResult<T> Post([FromBody] T resource, Guid? creatorId = null)
@@ -54,7 +55,8 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// Updates a resource by its id.
     /// </summary>
     /// <param name="id">The id of the resource to update.</param>
-    /// <param name="heldItemPatch">The resource patch.</param>
+    /// <param name="resourcePatch">The resource patch.</param>
+    /// <param name="updatorId">The id of the resource that updated this resource</param>
     /// <returns>The updated resource.</returns>
     [HttpPatch("{id}")]
     public ActionResult<T> Patch(Guid id, [FromBody] JsonPatchDocument<T> resourcePatch, Guid? updatorId = null)

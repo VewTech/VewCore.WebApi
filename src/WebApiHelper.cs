@@ -9,7 +9,7 @@ namespace VewTech.VewCore.WebApi;
 /// <typeparam name="T">The model type the controller exposes. As for current limitations, its key must be of type Guid.</typeparam>
 /// <param name="endpointRoute">The HTTP(S) route where the endpoint is exposed.</param>
 /// <param name="options">The options for the WebApiHelper.</param>
-public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options = null) where T : class
+public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options = null) where T : class, IWebApiModel
 {
     /// <summary>
     /// The passed options for the WebApiHelper.

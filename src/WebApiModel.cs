@@ -13,25 +13,25 @@ public class WebApiModel
     /// <summary>
     /// The id of the resource that created the resource.
     /// </summary>
-    public Guid? CreatedBy { get; set; }
+    public Guid? CreatedBy { get; set; } = null;
 
     /// <summary>
     /// The time the resource was created at.
     /// </summary>
-    public DateTime CreatedTimestamp { get; set; }
+    public DateTime? CreatedTimestamp { get; set; } = null;
 
     /// <summary>
     /// The id of the resource that last updated the resource.
     /// </summary>
-    public Guid? UpdatedBy { get; set; }
+    public Guid? UpdatedBy { get; set; } = null;
 
     /// <summary>
     /// The time the resource was last updated at.
     /// </summary>
-    public DateTime? UpdatedTimestamp { get; set; }
+    public DateTime? UpdatedTimestamp { get; set; } = null;
 
     /// <summary>
     /// The time the resource was disabled at.
     /// </summary>
-    public DateTime? DisabledTimestamp { get; set; }
+    public DateTime? DisabledTimestamp { get; set; } = null;
 }

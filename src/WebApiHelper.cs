@@ -14,7 +14,10 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// <summary>
     /// The passed options for the ApiHelper.
     /// </summary>
-    private WebApiHelperOptions Options { get; } = options ?? new WebApiHelperOptions();
+    private WebApiHelperOptions Options { get; } = options ?? new WebApiHelperOptions()
+    {
+        JsonSerializerOptions = new(System.Text.Json.JsonSerializerDefaults.Web)
+    };
 
     /// <summary>
     /// This is a wrapper around the GET endpoint. Will return all the resources.

@@ -13,6 +13,7 @@
     <PackageDescription>.NET Class Library used for creating ASP.NET Web Apis.</PackageDescription>
     <RepositoryUrl>https://github.com/VewTech/VewCore.WebApi</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

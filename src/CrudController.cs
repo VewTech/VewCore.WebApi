@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace VewTech.VewCore.Api;
+namespace VewTech.VewCore.WebApi;
 
 /// <summary>
 /// A Controller extension that provides default CRUD operation methods using EntityFrameworkCore.
@@ -10,7 +10,7 @@ namespace VewTech.VewCore.Api;
 /// <typeparam name="T">The model your controller will perform CRUD operations on. As for current limitations, the key type must be a Guid.</typeparam>
 /// <param name="dbContext">The DbContext the controller will perform operations on.</param>
 /// <param name="entities">The DbSet the controller will perform operations</param>
-public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Controller where T : class
+public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Controller where T : class, IWebApiModel
 {
     /// <summary>
     /// Gets all the resources.

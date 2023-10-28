@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+
 namespace VewTech.VewCore.WebApi.WebApiTest;
 
 public class Program
@@ -13,6 +15,10 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddDbContext<DataContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("TestDb"))
+        ); 
 
         var app = builder.Build();
 

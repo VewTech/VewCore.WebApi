@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VewCore.WebApi", "src\VewCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{07EE1188-722B-4516-B8B3-CA01A867F1F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiTest", "WebApiTest\WebApiTest.csproj", "{C6A4F0BF-9577-4340-A2A8-9B381535182D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{07EE1188-722B-4516-B8B3-CA01A867F1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07EE1188-722B-4516-B8B3-CA01A867F1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07EE1188-722B-4516-B8B3-CA01A867F1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A4F0BF-9577-4340-A2A8-9B381535182D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A4F0BF-9577-4340-A2A8-9B381535182D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A4F0BF-9577-4340-A2A8-9B381535182D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A4F0BF-9577-4340-A2A8-9B381535182D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

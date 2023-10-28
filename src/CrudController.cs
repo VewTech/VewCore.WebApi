@@ -17,7 +17,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// </summary>
     /// <returns>A list with all the resources.</returns>
     [HttpGet]
-    public ActionResult<IEnumerable<T>> Get()
+    public virtual ActionResult<IEnumerable<T>> Get()
     {
         return entities;
     }
@@ -29,7 +29,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// <param name="creatorId">The id of the resource that created this resource</param>
     /// <returns>The newly created resource.</returns>
     [HttpPost]
-    public ActionResult<T> Post([FromBody] T resource, Guid? creatorId = null)
+    public virtual ActionResult<T> Post([FromBody] T resource, Guid? creatorId = null)
     {
         resource.CreatedBy = creatorId;
         resource.CreatedTimestamp = DateTime.Now;
@@ -44,7 +44,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// <param name="id">The id to search.</param>
     /// <returns>The resource with the specified id.</returns>
     [HttpGet("{id}")]
-    public ActionResult<T> GetById(Guid id)
+    public virtual ActionResult<T> GetById(Guid id)
     {
         var resource = entities.Find(id);
         if (resource == null) return NotFound();
@@ -59,7 +59,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// <param name="updatorId">The id of the resource that updated this resource</param>
     /// <returns>The updated resource.</returns>
     [HttpPatch("{id}")]
-    public ActionResult<T> Patch(Guid id, [FromBody] JsonPatchDocument<T> resourcePatch, Guid? updatorId = null)
+    public virtual ActionResult<T> Patch(Guid id, [FromBody] JsonPatchDocument<T> resourcePatch, Guid? updatorId = null)
     {
         var resource = entities.Find(id);
         if (resource == null) return NotFound();
@@ -76,7 +76,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// <param name="id">The id of the resource to delete.</param>
     /// <returns>The action result.</returns>
     [HttpDelete("{id}")]
-    public ActionResult Delete(Guid id)
+    public virtual ActionResult Delete(Guid id)
     {
         var resource = entities.Find(id);
         if (resource == null) return NotFound();

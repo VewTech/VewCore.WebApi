@@ -24,7 +24,7 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// </summary>
     /// <returns>A list with all the resources.</returns>
     /// <exception cref="NullReferenceException"></exception>
-    public async Task<IEnumerable<T>> GetAll()
+    public async virtual Task<IEnumerable<T>> GetAll()
     {
         var response = await Options.HttpClient.GetAsync(endpointRoute);
         response.EnsureSuccessStatusCode();
@@ -39,7 +39,7 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// <param name="creatorId">The id of the resource creating this resource</param>
     /// <returns>The created resource.</returns>
     /// <exception cref="NullReferenceException"></exception>
-    public async Task<T> Post(T resource, Guid? creatorId = null)
+    public async virtual Task<T> Post(T resource, Guid? creatorId = null)
     {
         var response = await Options.HttpClient.PostAsJsonAsync($"{endpointRoute}?creatorId={creatorId}", resource);
         response.EnsureSuccessStatusCode();
@@ -53,7 +53,7 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// <param name="id">The id of the resource to retrieve.</param>
     /// <returns>The resource with the specified id.</returns>
     /// <exception cref="NullReferenceException"></exception>
-    public async Task<T> GetById(Guid id)
+    public async virtual Task<T> GetById(Guid id)
     {
         var response = await Options.HttpClient.GetAsync($"{endpointRoute}/{id}");
         response.EnsureSuccessStatusCode();
@@ -69,7 +69,7 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// <param name="updatorId">The id of the resource updating this resource</param>
     /// <returns>The updated resource.</returns>
     /// <exception cref="NullReferenceException"></exception>
-    public async Task<T> Patch(Guid id, JsonPatchDocument<T> patch, Guid? updatorId = null)
+    public async virtual Task<T> Patch(Guid id, JsonPatchDocument<T> patch, Guid? updatorId = null)
     {
         var response = await Options.HttpClient.PatchAsJsonAsync
         ($"{endpointRoute}/{id}?updatorId={updatorId}", patch.Operations, options: Options.JsonSerializerOptions);
@@ -83,7 +83,7 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// </summary>
     /// <param name="id">The id of the resource to remove.</param>
     /// <returns></returns>
-    public async Task Delete(Guid id)
+    public async virtual Task Delete(Guid id)
     {
         var response = await Options.HttpClient.DeleteAsync($"{endpointRoute}/{id}");
         response.EnsureSuccessStatusCode();

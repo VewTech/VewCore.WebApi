@@ -1,9 +1,9 @@
 namespace VewTech.VewCore.WebApi;
 
 /// <summary>
-/// The interface models need to implement to be handled by CrudController and WebApiHelper.
+/// The class models need to inherit from in order to be handled by CrudController and WebApiHelper.
 /// </summary>
-public interface IWebApiModel
+public class WebApiModel
 {
     /// <summary>
     /// The unique identifier for the resource.

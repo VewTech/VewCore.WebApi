@@ -10,7 +10,7 @@ namespace VewTech.VewCore.WebApi;
 /// <typeparam name="T">The model your controller will perform CRUD operations on. As for current limitations, the key type must be a Guid.</typeparam>
 /// <param name="dbContext">The DbContext the controller will perform operations on.</param>
 /// <param name="entities">The DbSet the controller will perform operations</param>
-public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Controller where T : class, IWebApiModel
+public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Controller where T : WebApiModel
 {
     /// <summary>
     /// Gets all the resources.

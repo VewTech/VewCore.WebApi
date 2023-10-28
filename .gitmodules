@@ -1,0 +1,3 @@
+[submodule "docs"]
+	path = docs
+	url = https://github.com/VewTech.VewCore.WebApi.wiki.git

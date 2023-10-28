@@ -28,7 +28,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// <param name="resource">The resource to be created.</param>
     /// <returns>The newly created resource.</returns>
     [HttpPost]
-    public ActionResult<T> Post([FromBody] T resource, Guid? creatorId)
+    public ActionResult<T> Post([FromBody] T resource, Guid? creatorId = null)
     {
         resource.CreatedBy = creatorId;
         resource.CreatedTimestamp = DateTime.Now;
@@ -57,7 +57,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// <param name="heldItemPatch">The resource patch.</param>
     /// <returns>The updated resource.</returns>
     [HttpPatch("{id}")]
-    public ActionResult<T> Patch(Guid id, [FromBody] JsonPatchDocument<T> resourcePatch, Guid? updatorId)
+    public ActionResult<T> Patch(Guid id, [FromBody] JsonPatchDocument<T> resourcePatch, Guid? updatorId = null)
     {
         var resource = entities.Find(id);
         if (resource == null) return NotFound();

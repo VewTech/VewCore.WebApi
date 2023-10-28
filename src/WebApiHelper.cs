@@ -12,7 +12,7 @@ namespace VewTech.VewCore.WebApi;
 public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options = null) where T : class
 {
     /// <summary>
-    /// The passed options for the ApiHelper.
+    /// The passed options for the WebApiHelper.
     /// </summary>
     private WebApiHelperOptions Options { get; } = options ?? new WebApiHelperOptions()
     {

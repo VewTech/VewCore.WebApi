@@ -1,5 +1,5 @@
 
-namespace WebApiTest;
+namespace VewTech.VewCore.WebApi.WebApiTest;
 
 public class Program
 {

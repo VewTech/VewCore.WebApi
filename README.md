@@ -8,7 +8,6 @@ Features for VewCore.WebApi include:
 
 - [x] **CRUD Controller Generic Class**: Generic class that extends the Controller ASP.NET class with default CRUD operation methods using EntityFrameworkCore.
 - [x] **WebApi Helper Generic Class**: Provides wrapper methods around the CRUD endpoints a CrudController exposes.
-- [x] **WebApi Model interface**: Defines that a model will be used by a CrudController, and requires it to have useful data, such as an Id and a CreatedTimestamp.
 
 ## Installation
 
@@ -37,6 +36,7 @@ All contributions are welcome. Please, open an issue or make a pull request if y
 ## Tech Stack
 
 This is the tech stack used by the app:
+
 - .NET 8.0
 - C#
 - EntityFrameworkCore

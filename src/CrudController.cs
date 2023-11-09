@@ -29,7 +29,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// <param name="creatorId">The id of the resource that created this resource</param>
     /// <returns>The newly created resource.</returns>
     [HttpPost]
-    public virtual ActionResult<T> Post([FromBody] T resource, Guid? creatorId = null)
+    public virtual ActionResult<T> Post([FromBody] T resource)
     {
         entities.Add(resource);
         dbContext.SaveChanges();
@@ -57,7 +57,7 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     /// <param name="updatorId">The id of the resource that updated this resource</param>
     /// <returns>The updated resource.</returns>
     [HttpPatch("{id}")]
-    public virtual ActionResult<T> Patch(Guid id, [FromBody] JsonPatchDocument<T> resourcePatch, Guid? updatorId = null)
+    public virtual ActionResult<T> Patch(Guid id, [FromBody] JsonPatchDocument<T> resourcePatch)
     {
         var resource = entities.Find(id);
         if (resource == null) return NotFound();

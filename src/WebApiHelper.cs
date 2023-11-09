@@ -39,9 +39,9 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// <param name="creatorId">The id of the resource creating this resource</param>
     /// <returns>The created resource.</returns>
     /// <exception cref="NullReferenceException"></exception>
-    public async virtual Task<T> Post(T resource, Guid? creatorId = null)
+    public async virtual Task<T> Post(T resource)
     {
-        var response = await Options.HttpClient.PostAsJsonAsync($"{endpointRoute}?creatorId={creatorId}", resource);
+        var response = await Options.HttpClient.PostAsJsonAsync($"{endpointRoute}", resource);
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadFromJsonAsync<T>(options: Options.JsonSerializerOptions) ?? throw new NullReferenceException();
         return content;
@@ -69,10 +69,10 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// <param name="updatorId">The id of the resource updating this resource</param>
     /// <returns>The updated resource.</returns>
     /// <exception cref="NullReferenceException"></exception>
-    public async virtual Task<T> Patch(Guid id, JsonPatchDocument<T> patch, Guid? updatorId = null)
+    public async virtual Task<T> Patch(Guid id, JsonPatchDocument<T> patch)
     {
         var response = await Options.HttpClient.PatchAsJsonAsync
-        ($"{endpointRoute}/{id}?updatorId={updatorId}", patch.Operations, options: Options.JsonSerializerOptions);
+        ($"{endpointRoute}/{id}", patch.Operations, options: Options.JsonSerializerOptions);
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadFromJsonAsync<T>(options: Options.JsonSerializerOptions) ?? throw new NullReferenceException();
         return content;

@@ -14,7 +14,7 @@ public class WebApiHelper<T>(string endpointRoute, WebApiHelperOptions? options 
     /// <summary>
     /// The passed options for the WebApiHelper.
     /// </summary>
-    private WebApiHelperOptions Options { get; } = options ?? new WebApiHelperOptions()
+    public WebApiHelperOptions Options { get; } = options ?? new WebApiHelperOptions()
     {
         JsonSerializerOptions = new(System.Text.Json.JsonSerializerDefaults.Web)
     };

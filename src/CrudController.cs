@@ -10,7 +10,7 @@ namespace VewTech.VewCore.WebApi;
 /// <typeparam name="T">The model your controller will perform CRUD operations on. As for current limitations, the key type must be a Guid.</typeparam>
 /// <param name="dbContext">The DbContext the controller will perform operations on.</param>
 /// <param name="entities">The DbSet the controller will perform operations</param>
-public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Controller where T : WebApiModel
+public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Controller where T : class
 {
     /// <summary>
     /// Gets all the resources.
@@ -31,8 +31,6 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     [HttpPost]
     public virtual ActionResult<T> Post([FromBody] T resource, Guid? creatorId = null)
     {
-        resource.CreatedBy = creatorId;
-        resource.CreatedTimestamp = DateTime.Now;
         entities.Add(resource);
         dbContext.SaveChanges();
         return Created("", resource);
@@ -63,8 +61,6 @@ public class CrudController<T>(DbContext dbContext, DbSet<T> entities) : Control
     {
         var resource = entities.Find(id);
         if (resource == null) return NotFound();
-        resource.UpdatedBy = updatorId;
-        resource.UpdatedTimestamp = DateTime.Now;
         resourcePatch.ApplyTo(resource);
         dbContext.SaveChanges();
         return resource;
